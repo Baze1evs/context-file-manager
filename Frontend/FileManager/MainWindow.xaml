@@ -43,12 +43,7 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TabControl.Resources>
-            <TabItem x:Name="Tab1" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Аудио</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab1" Height="20" Header="Аудио">
                 <Grid x:Name="Audio">
                     <CheckBox x:Name="AllTrue1" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -105,12 +100,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab2" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Видио</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab2" Height="20" Header="Видео">
                 <Grid x:Name="Video">
                     <CheckBox x:Name="AllTrue2" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -187,12 +177,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab3" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Архивы</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab3" Height="20" Header="Архив">
                 <Grid x:Name="Archive">
                     <CheckBox x:Name="AllTrue3" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -245,12 +230,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab4" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Таблицы</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab4" Height="20" Header="Таблицы">
                 <Grid x:Name="Table">
                     <CheckBox x:Name="AllTrue4" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -287,12 +267,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab5" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Документы</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab5" Height="20" Header="Документы">
                 <Grid x:Name="Document">
                     <CheckBox x:Name="AllTrue5" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -350,12 +325,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab6" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Презентации</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab6" Height="20" Header = "Презентации" >
                 <Grid x:Name="Presentation">
                     <CheckBox x:Name="AllTrue6" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"
@@ -392,12 +362,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Tab7" Height="20">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Изображения</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+            <TabItem x:Name="Tab7" Height="20" Header="Изображения">
                 <Grid x:Name="Picture">
                     <CheckBox x:Name="AllTrue7" Margin="10,10,10,0" IsThreeState="True"
                           Indeterminate="SelectAll_Indeterminate"

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SSFwO2lsyDn/jwuf1Rl41CqVD6RKJ8CFaMQLpxg2IsmR4X6/2mLGPqFzjPvfvPG+NDKP5/UVe684XmlMxKhI4w==",
+  "dgSpecHash": "LexCH2NOR6iRy4g1r1+M+ykvAj5AvgodArelk6BsIte/AajYPw6zGIOwgWIIMMj8MWhOhabzX9A7syCOKzqjjA==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\ContextFileManagerInterface\\context-file-manager\\Frontend\\FileManager\\FileManager.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\goroc\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\goroc\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

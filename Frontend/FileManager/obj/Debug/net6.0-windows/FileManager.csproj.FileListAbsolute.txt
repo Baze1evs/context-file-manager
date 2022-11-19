@@ -44,3 +44,6 @@ E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\
 E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\obj\Debug\net6.0-windows\FileManager.pdb
 E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\obj\Debug\net6.0-windows\FileManager.genruntimeconfig.cache
 E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\obj\Debug\net6.0-windows\ref\FileManager.dll
+E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\bin\Debug\net6.0-windows\System.Text.Encoding.CodePages.dll
+E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+E:\GitHub\ContextFileManagerInterface\context-file-manager\Frontend\FileManager\obj\Debug\net6.0-windows\FileManager.csproj.CopyComplete

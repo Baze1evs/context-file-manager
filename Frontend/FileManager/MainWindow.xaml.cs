@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Diagnostics;
 
 namespace FileManager
 {
@@ -227,7 +229,58 @@ namespace FileManager
             //SaveSettings
             Properties.Settings.Default.Save();
 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            if (radioButton1.IsChecked == false && radioButton2.IsChecked == false)
+                MessageBox.Show("Выберите способ сортировки!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+            {
+                String config = "C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\ContextFileManager\\filegroups.yml";
+                if (File.Exists(config))
+                    File.Delete(config);
+                File.AppendAllText(config, "# Файл конфигурации.\r\n\r\n", Encoding.GetEncoding(1251));
+
+                TabControl tab = TabConrol;
+                foreach (TabItem item  in tab.Items)
+                {
+                    Grid grid = (Grid)item.Content;
+
+                    foreach (UIElement el in grid.Children)
+                    {
+                        if (el is ListBox)
+                        {
+                            File.AppendAllText(config, item.Header + ":\r\n", Encoding.GetEncoding(1251));
+
+                            foreach (CheckBox ch in ((ListBox)el).Items)
+                            {
+                                File.AppendAllText(config, "  - " + ch.Content + "\r\n", Encoding.GetEncoding(1251));
+                            }
+                            File.AppendAllText(config, "\r\n", Encoding.GetEncoding(1251));
+                        }
+                    } 
+                }
+
+            }
+
+            Process process = new Process();
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.FileName = "main.exe";
+
+            if (radioButton1.IsChecked == true)
+                process.StartInfo.Arguments += "-e";
+            else if (radioButton2.IsChecked == true)
+                process.StartInfo.Arguments += "-t";
+            if (checkBox1.IsChecked == true)
+                process.StartInfo.Arguments += "b";
+            if (checkBox2.IsChecked == true)
+                process.StartInfo.Arguments += "o";
+            process.Start();
+
             Application.Current.Shutdown();
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

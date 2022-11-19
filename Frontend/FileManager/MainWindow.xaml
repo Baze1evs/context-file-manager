@@ -1,0 +1,467 @@
+﻿<Window x:Class="FileManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileManager"
+        mc:Ignorable="d"
+        Title="FileManager" Height="520" Width="380"
+        ResizeMode ="NoResize">
+
+    <Grid x:Name="MainRoot" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox1" Grid.Row="1" Width="340" Height="90" Header="Сортировать" 
+                  Foreground="Black" 
+                  BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                  Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        <Button x:Name="OK" Grid.Row="2" Width="71" Height="28" 
+                Content="OK" Background="White" Click="OK_Click"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
+                RenderTransformOrigin="0.507,0.484" Margin="200,5,90,5"/>
+        <Button x:Name="Exit" Grid.Row="2" Width="71" Height="28"  
+                Content="Отмена" Background="White" Click="Exit_Click"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                RenderTransformOrigin="2.493,0.448" Margin="280,5,10,5"/>
+        <RadioButton x:Name="radioButton2" Grid.Row="1" Width="88" Height="16" 
+                     Content="Тип"  VerticalAlignment="Bottom" Margin="137,0,152,48"/>
+        <RadioButton x:Name="radioButton1" Grid.Row="1" Width="88" Height="17" 
+                     Content="Расширение" VerticalAlignment="Bottom" Margin="31,0,258,48"/>
+        <CheckBox x:Name="checkBox1" Style="{DynamicResource RoundCheckBox}" Grid.Row="1" 
+                  Width="300" Height="17" Content="Сортировать текстовые файлы по содержимому" 
+                  VerticalAlignment="Bottom" Margin="31,0,46,26"/>
+        <CheckBox x:Name="checkBox2" Style="{DynamicResource RoundCheckBox}" Grid.Row="1" 
+                  Width="300" Height="17" Content="Переместить невыбранное в папку Другое" 
+                  VerticalAlignment="Top" Margin="31,68,46,0"/>
+
+        <TabControl x:Name="TabConrol" Width="340" Height="auto" Margin="10,10,10,0">
+            <TabControl.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TabControl.Resources>
+            <TabItem x:Name="Tab1" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Аудио</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Audio">
+                    <CheckBox x:Name="AllTrue1" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto"
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Aud" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="aif"
+                          Content="aif" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="cda"
+                          Content="cda" Width="auto" Height="auto"  Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mid"
+                          Content="mid" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="midi"
+                          Content="midi" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mp3"
+                          Content="mp3" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mpa"
+                          Content="mpa" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"        
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="ogg"
+                          Content="ogg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wav"
+                          Content="wav" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wma"
+                          Content="wma" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wpl"
+                          Content="wpl" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab2" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Видио</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Video">
+                    <CheckBox x:Name="AllTrue2" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto" 
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Vid" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="three_g2"
+                          Content="3g2" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="three_gp"
+                          Content="3gp" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="avi"
+                          Content="avi" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="flv"
+                          Content="flv" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="h264"
+                          Content="h2643" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="m4v"
+                          Content="m4v" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mkv"
+                          Content="mkv" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mov"
+                          Content="mov" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mp4"
+                          Content="mp4" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mpg"
+                          Content="mpg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="mpeg"
+                          Content="mpeg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="rm"
+                          Content="rm" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="swf"
+                          Content="swf" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="vob"
+                          Content="vob" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="vmv"
+                          Content="vmv" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab3" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Архивы</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Archive">
+                    <CheckBox x:Name="AllTrue3" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto" 
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Archi" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="seven_z"
+                          Content="7z" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="arj"
+                          Content="arj" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="deb"
+                          Content="deb" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="pkg"
+                          Content="pkg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="rar"
+                          Content="rar" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="rpm"
+                          Content="rpm" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="tar_gz"
+                          Content="tar.gz" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="z"
+                          Content="z" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="zip"
+                          Content="zip" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab4" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Таблицы</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Table">
+                    <CheckBox x:Name="AllTrue4" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto" 
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Tab" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="ods"
+                          Content="ods" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="xlr"
+                          Content="xlr" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="xls"
+                          Content="xls" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="xlsx"
+                          Content="xlsx" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="csv"
+                          Content="csv" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab5" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Документы</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Document">
+                    <CheckBox x:Name="AllTrue5" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto"
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Docum" Margin="3,40,3,0">
+
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="doc"
+                          Content="doc" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="docx"
+                          Content="docx" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="odt"
+                          Content="odt" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="pdf"
+                          Content="pdf" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="rtf"
+                          Content="trf" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="tex"
+                          Content="tex" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="txt"
+                          Content="txt" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wks"
+                          Content="wks" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wps"
+                          Content="wps" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="wpd"
+                          Content="wpd" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab6" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Презентации</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Presentation">
+                    <CheckBox x:Name="AllTrue6" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto"
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Present" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="key"
+                          Content="key" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="odp"
+                          Content="odp" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="pps"
+                          Content="pps" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="ppt"
+                          Content="ppt" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="pptx"
+                          Content="pptx" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Tab7" Height="20">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Изображения</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="Picture">
+                    <CheckBox x:Name="AllTrue7" Margin="10,10,10,0" IsThreeState="True"
+                          Indeterminate="SelectAll_Indeterminate"
+                          Content="Выбрать всё" Width="auto" Height="auto"
+                          Checked="AllTrue_Checked"
+                          Unchecked="AllTrue_Unchecked"
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    <ListBox x:Name="Pict" Margin="3,40,3,0">
+                        <ListBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <CheckBox x:Name="ai"
+                          Content="ai" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="bmp"
+                          Content="bmp" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="gif"
+                          Content="gif" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="ico"
+                          Content="ico" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="jpeg"
+                          Content="jpeg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="jpg"
+                          Content="jpg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="png"
+                          Content="png" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="ps"
+                          Content="ps" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="psd"
+                          Content="psd" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="svg"
+                          Content="svg" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked" 
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="tif"
+                          Content="tif" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                        <CheckBox x:Name="tiff"
+                          Content="tiff" Width="auto" Height="auto" Checked="Option_Checked"
+                          Unchecked="Option_Unchecked"  
+                          Style="{DynamicResource RoundCheckBox}"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

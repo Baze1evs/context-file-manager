@@ -1,6 +1,5 @@
 import winreg
 import os
-import sys
 import ctypes
 
 
@@ -40,18 +39,14 @@ def delete_key(path: str, hive=winreg.HKEY_CURRENT_USER):
     winreg.DeleteKey(open_key, "")
 
 
-def remove_menu(name: str, type: str):
+def remove_menu(name: str, path: str):
     """
-    Removes a context menu from the windows registry.
+    Removes a context menu from the Windows registry.
     """
-    # run_admin()
-    menu_path = os.path.join(type, name)
+    menu_path = os.path.join(path, name)
     delete_key(menu_path)
 
 
 if __name__ == "__main__":
     if is_admin():
         remove_menu('FileSorter', 'Software\\Classes\\Directory\\Background\\shell')
-    else:
-        ctypes.windll.shell32.ShellExecuteW(
-            None, "runas", sys.executable, __file__, None, 1)

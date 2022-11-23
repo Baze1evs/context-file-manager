@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <GroupBox x:Name="groupBox1" Grid.Row="1" Width="340" Height="90" Header="Сортировать" 
-                  Foreground="Black" 
+                  Foreground="Black"
                   BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
                   Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
         <Button x:Name="OK" Grid.Row="2" Width="71" Height="28" 
@@ -26,10 +26,10 @@
                 Content="Отмена" Background="White" Click="Exit_Click"
                 BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
                 RenderTransformOrigin="2.493,0.448" Margin="280,5,10,5"/>
-        <RadioButton x:Name="radioButton2" Grid.Row="1" Width="88" Height="16" 
+        <RadioButton x:Name="radioButton2" Grid.Row="1" Width="88" Height="17"
                      Content="Тип"  VerticalAlignment="Bottom" Margin="137,0,152,48"/>
-        <RadioButton x:Name="radioButton1" Grid.Row="1" Width="88" Height="17" 
-                     Content="Расширение" VerticalAlignment="Bottom" Margin="31,0,258,48"/>
+        <RadioButton x:Name="radioButton1" Grid.Row="1" Width="auto"  Height="17" 
+                     Content="Расширения" VerticalAlignment="Bottom" Margin="31,0,245,48"/>
         <CheckBox x:Name="checkBox1" Style="{DynamicResource RoundCheckBox}" Grid.Row="1" 
                   Width="300" Height="17" Content="Сортировать текстовые файлы по содержимому" 
                   VerticalAlignment="Bottom" Margin="31,0,46,26"/>

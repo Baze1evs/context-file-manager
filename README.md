@@ -1,3 +1,3 @@
 # context-file-manager
-File manager integrated in Windows context menu through registry with interesting feature
+File manager integrated in Windows context menu through registry with interesting feature\n
 Authors: Kirill Litvinov, Egor Gorochkin
